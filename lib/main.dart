@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/counter/counter_bloc.dart';
+import 'package:flutter_application_1/logic/bloc/todo_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'view/home_page.dart';
@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider<CounterCubit>(
-        create: (context) => CounterCubit(),
+      home: BlocProvider<TodoBloc>(
+        create: (context) => TodoBloc()..add(const TodoEvent.fetchList()),
         child: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
     );

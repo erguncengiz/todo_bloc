@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/logic/bloc/todo_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -10,38 +12,27 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                'ASD',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  FloatingActionButton(
-                    onPressed: () {
-                      //context.read<CounterCubit>().decrement();
-                    },
-                    tooltip: 'Decrement',
-                    child: const Icon(Icons.remove),
-                  ),
-                  FloatingActionButton(
-                    onPressed: () {
-                      //context.read<CounterCubit>().increment();
-                    },
-                    tooltip: 'Increment',
-                    child: const Icon(Icons.add),
-                  ),
-                ],
-              )
-            ],
-          ),
+        body: BlocBuilder<TodoBloc, TodoState>(
+          builder: (context, state) {
+            return state.when(initial: () {
+              return const SizedBox();
+            }, loading: () {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }, done: (fetchedList) {
+              return ListView.builder(
+                  itemCount: fetchedList.length,
+                  itemBuilder: (context, index) {
+                    //Card widget tasarımı lazım
+                    return const SizedBox();
+                  });
+            }, error: () {
+              return const Center(
+                child: Text('Something went wrong!'),
+              );
+            });
+          },
         ));
   }
 }
