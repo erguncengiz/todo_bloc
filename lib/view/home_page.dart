@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/logic/bloc/todo_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../widgets/todo_card_widget.dart';
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
@@ -21,12 +23,17 @@ class MyHomePage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             }, done: (fetchedList) {
-              return ListView.builder(
-                  itemCount: fetchedList.length,
-                  itemBuilder: (context, index) {
-                    //Card widget tasarımı lazım
-                    return const SizedBox();
-                  });
+              return fetchedList.isEmpty
+                  ? const Center(
+                      child: Text('The list is empty!'),
+                    )
+                  : ListView.builder(
+                      itemCount: fetchedList.length,
+                      itemBuilder: (context, index) {
+                        return TodoCardWidget(
+                          tmpTask: fetchedList[index],
+                        );
+                      });
             }, error: () {
               return const Center(
                 child: Text('Something went wrong!'),
