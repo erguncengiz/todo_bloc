@@ -18,6 +18,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     on<AddTask>(_addTask);
     on<RemoveTask>(_removeTask);
     on<CheckTask>(_checkTask);
+    on<RecreateTask>(_recreateTask);
   }
 
   Future<FutureOr<void>> _fetchList(
@@ -39,7 +40,13 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
 
   FutureOr<void> _checkTask(CheckTask event, Emitter<TodoState> emit) {
     emit(const Initial());
-    mockList.remove(event.checkedTask);
-    emit(Done(Todos(checkedTaskList..add(event.checkedTask))));
+    checkedTaskList.add(event.checkedTask);
+    emit(Done(Todos(mockList..remove(event.checkedTask))));
+  }
+
+  FutureOr<void> _recreateTask(RecreateTask event, Emitter<TodoState> emit) {
+    emit(const Initial());
+    checkedTaskList.remove(event.recreatedTask);
+    emit(Done(Todos(mockList..add(event.recreatedTask))));
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/logic/bloc/todo_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../contants/constants.dart';
 import '../models/todo_task.dart';
 
 class TodoCardWidget extends StatelessWidget {
@@ -28,28 +29,37 @@ class TodoCardWidget extends StatelessWidget {
           children: [
             Text(
               '#${index + 1} : ${tmpTask.name}',
-              style: const TextStyle(color: Colors.white),
+              style: Rsc().textStyles.cardText,
             ),
             !isChecked
                 ? Row(
                     children: [
                       IconButton(
-                          onPressed: () {
-                            context.read<TodoBloc>().add(RemoveTask(tmpTask));
-                          },
-                          icon: const Icon(Icons.check_circle_outline)),
+                        onPressed: () {
+                          context.read<TodoBloc>().add(CheckTask(tmpTask));
+                        },
+                        icon: const Icon(Icons.check_circle_outline),
+                        color: Rsc().colors.iconColor,
+                      ),
                       IconButton(
                         onPressed: () {
                           context.read<TodoBloc>().add(RemoveTask(tmpTask));
                         },
                         icon: const Icon(Icons.close),
+                        color: Rsc().colors.iconColor,
                       ),
                     ],
                   )
-                : const Icon(
-                    Icons.remove,
-                    color: Colors.transparent,
-                  )
+                : IconButton(
+                    onPressed: () {
+                      context.read<TodoBloc>().add(RecreateTask(tmpTask));
+                      Navigator.of(context).pop();
+                    },
+                    icon: Icon(
+                      Icons.recycling_rounded,
+                      color: Rsc().colors.iconColor,
+                    ),
+                  ),
           ],
         ),
       ),
