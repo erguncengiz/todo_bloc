@@ -496,9 +496,9 @@ class _$TodoStateTearOff {
     return const Loading();
   }
 
-  Done done(List<TodoTask> todoList) {
+  Done done(Todos todos) {
     return Done(
-      todoList,
+      todos,
     );
   }
 
@@ -516,7 +516,7 @@ mixin _$TodoState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TodoTask> todoList) done,
+    required TResult Function(Todos todos) done,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
@@ -524,7 +524,7 @@ mixin _$TodoState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -532,7 +532,7 @@ mixin _$TodoState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -619,7 +619,7 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TodoTask> todoList) done,
+    required TResult Function(Todos todos) done,
     required TResult Function() error,
   }) {
     return initial();
@@ -630,7 +630,7 @@ class _$Initial implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
   }) {
     return initial?.call();
@@ -641,7 +641,7 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -733,7 +733,7 @@ class _$Loading implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TodoTask> todoList) done,
+    required TResult Function(Todos todos) done,
     required TResult Function() error,
   }) {
     return loading();
@@ -744,7 +744,7 @@ class _$Loading implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
   }) {
     return loading?.call();
@@ -755,7 +755,7 @@ class _$Loading implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -811,7 +811,7 @@ abstract class Loading implements TodoState {
 abstract class $DoneCopyWith<$Res> {
   factory $DoneCopyWith(Done value, $Res Function(Done) then) =
       _$DoneCopyWithImpl<$Res>;
-  $Res call({List<TodoTask> todoList});
+  $Res call({Todos todos});
 }
 
 /// @nodoc
@@ -825,13 +825,13 @@ class _$DoneCopyWithImpl<$Res> extends _$TodoStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? todoList = freezed,
+    Object? todos = freezed,
   }) {
     return _then(Done(
-      todoList == freezed
-          ? _value.todoList
-          : todoList // ignore: cast_nullable_to_non_nullable
-              as List<TodoTask>,
+      todos == freezed
+          ? _value.todos
+          : todos // ignore: cast_nullable_to_non_nullable
+              as Todos,
     ));
   }
 }
@@ -839,14 +839,14 @@ class _$DoneCopyWithImpl<$Res> extends _$TodoStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Done implements Done {
-  const _$Done(this.todoList);
+  const _$Done(this.todos);
 
   @override
-  final List<TodoTask> todoList;
+  final Todos todos;
 
   @override
   String toString() {
-    return 'TodoState.done(todoList: $todoList)';
+    return 'TodoState.done(todos: $todos)';
   }
 
   @override
@@ -854,12 +854,12 @@ class _$Done implements Done {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Done &&
-            const DeepCollectionEquality().equals(other.todoList, todoList));
+            const DeepCollectionEquality().equals(other.todos, todos));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(todoList));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(todos));
 
   @JsonKey(ignore: true)
   @override
@@ -871,10 +871,10 @@ class _$Done implements Done {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TodoTask> todoList) done,
+    required TResult Function(Todos todos) done,
     required TResult Function() error,
   }) {
-    return done(todoList);
+    return done(todos);
   }
 
   @override
@@ -882,10 +882,10 @@ class _$Done implements Done {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
   }) {
-    return done?.call(todoList);
+    return done?.call(todos);
   }
 
   @override
@@ -893,12 +893,12 @@ class _$Done implements Done {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
     required TResult orElse(),
   }) {
     if (done != null) {
-      return done(todoList);
+      return done(todos);
     }
     return orElse();
   }
@@ -942,9 +942,9 @@ class _$Done implements Done {
 }
 
 abstract class Done implements TodoState {
-  const factory Done(List<TodoTask> todoList) = _$Done;
+  const factory Done(Todos todos) = _$Done;
 
-  List<TodoTask> get todoList;
+  Todos get todos;
   @JsonKey(ignore: true)
   $DoneCopyWith<Done> get copyWith => throw _privateConstructorUsedError;
 }
@@ -989,7 +989,7 @@ class _$Error implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TodoTask> todoList) done,
+    required TResult Function(Todos todos) done,
     required TResult Function() error,
   }) {
     return error();
@@ -1000,7 +1000,7 @@ class _$Error implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
   }) {
     return error?.call();
@@ -1011,7 +1011,7 @@ class _$Error implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TodoTask> todoList)? done,
+    TResult Function(Todos todos)? done,
     TResult Function()? error,
     required TResult orElse(),
   }) {

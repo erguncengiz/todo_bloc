@@ -13,14 +13,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: BlocProvider<TodoBloc>(
-        create: (context) => TodoBloc()..add(const TodoEvent.fetchList()),
-        child: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return BlocProvider<TodoBloc>(
+      create: (context) => TodoBloc()..add(const TodoEvent.fetchList()),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
     );
   }

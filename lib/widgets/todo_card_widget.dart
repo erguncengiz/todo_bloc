@@ -13,9 +13,25 @@ class TodoCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.orangeAccent,
-      child: Text(
-        tmpTask.name,
-        style: const TextStyle(color: Colors.white),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            tmpTask.name,
+            style: const TextStyle(color: Colors.white),
+          ),
+          Row(
+            children: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.check_circle_outline)),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.close),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }

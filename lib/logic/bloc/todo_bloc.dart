@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../models/todo_task.dart';
@@ -10,7 +11,7 @@ part 'todo_state.dart';
 part 'todo_bloc.freezed.dart';
 
 class TodoBloc extends Bloc<TodoEvent, TodoState> {
-  final List<TodoTask> mockList = [];
+  List<TodoTask> mockList = [];
   TodoBloc() : super(const Initial()) {
     on<FetchList>(_fetchList);
     on<AddTask>(_addTask);
@@ -21,14 +22,14 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
       FetchList event, Emitter<TodoState> emit) async {
     emit(const Loading());
     await Future.delayed(const Duration(milliseconds: 800));
-    emit(Done(mockList));
+    emit(Done(Todos(mockList)));
   }
 
   FutureOr<void> _addTask(AddTask event, Emitter<TodoState> emit) {
-    emit(Done(mockList..add(event.addedTask)));
+    emit(Done(Todos(mockList..add(event.addedTask))));
   }
 
   FutureOr<void> _removeTask(RemoveTask event, Emitter<TodoState> emit) {
-    emit(Done(mockList..remove(event.removedTask)));
+    emit(Done(Todos(mockList..remove(event.removedTask))));
   }
 }
