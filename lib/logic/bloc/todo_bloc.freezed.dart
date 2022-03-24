@@ -33,6 +33,12 @@ class _$TodoEventTearOff {
       removedTask,
     );
   }
+
+  CheckTask checkTask(TodoTask checkedTask) {
+    return CheckTask(
+      checkedTask,
+    );
+  }
 }
 
 /// @nodoc
@@ -45,6 +51,7 @@ mixin _$TodoEvent {
     required TResult Function() fetchList,
     required TResult Function(TodoTask addedTask) addNewTask,
     required TResult Function(TodoTask removedTask) removeTask,
+    required TResult Function(TodoTask checkedTask) checkTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +59,7 @@ mixin _$TodoEvent {
     TResult Function()? fetchList,
     TResult Function(TodoTask addedTask)? addNewTask,
     TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +67,7 @@ mixin _$TodoEvent {
     TResult Function()? fetchList,
     TResult Function(TodoTask addedTask)? addNewTask,
     TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +76,7 @@ mixin _$TodoEvent {
     required TResult Function(FetchList value) fetchList,
     required TResult Function(AddTask value) addNewTask,
     required TResult Function(RemoveTask value) removeTask,
+    required TResult Function(CheckTask value) checkTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +84,7 @@ mixin _$TodoEvent {
     TResult Function(FetchList value)? fetchList,
     TResult Function(AddTask value)? addNewTask,
     TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +92,7 @@ mixin _$TodoEvent {
     TResult Function(FetchList value)? fetchList,
     TResult Function(AddTask value)? addNewTask,
     TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +154,7 @@ class _$FetchList implements FetchList {
     required TResult Function() fetchList,
     required TResult Function(TodoTask addedTask) addNewTask,
     required TResult Function(TodoTask removedTask) removeTask,
+    required TResult Function(TodoTask checkedTask) checkTask,
   }) {
     return fetchList();
   }
@@ -152,6 +165,7 @@ class _$FetchList implements FetchList {
     TResult Function()? fetchList,
     TResult Function(TodoTask addedTask)? addNewTask,
     TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
   }) {
     return fetchList?.call();
   }
@@ -162,6 +176,7 @@ class _$FetchList implements FetchList {
     TResult Function()? fetchList,
     TResult Function(TodoTask addedTask)? addNewTask,
     TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
     required TResult orElse(),
   }) {
     if (fetchList != null) {
@@ -176,6 +191,7 @@ class _$FetchList implements FetchList {
     required TResult Function(FetchList value) fetchList,
     required TResult Function(AddTask value) addNewTask,
     required TResult Function(RemoveTask value) removeTask,
+    required TResult Function(CheckTask value) checkTask,
   }) {
     return fetchList(this);
   }
@@ -186,6 +202,7 @@ class _$FetchList implements FetchList {
     TResult Function(FetchList value)? fetchList,
     TResult Function(AddTask value)? addNewTask,
     TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
   }) {
     return fetchList?.call(this);
   }
@@ -196,6 +213,7 @@ class _$FetchList implements FetchList {
     TResult Function(FetchList value)? fetchList,
     TResult Function(AddTask value)? addNewTask,
     TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
     required TResult orElse(),
   }) {
     if (fetchList != null) {
@@ -274,6 +292,7 @@ class _$AddTask implements AddTask {
     required TResult Function() fetchList,
     required TResult Function(TodoTask addedTask) addNewTask,
     required TResult Function(TodoTask removedTask) removeTask,
+    required TResult Function(TodoTask checkedTask) checkTask,
   }) {
     return addNewTask(addedTask);
   }
@@ -284,6 +303,7 @@ class _$AddTask implements AddTask {
     TResult Function()? fetchList,
     TResult Function(TodoTask addedTask)? addNewTask,
     TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
   }) {
     return addNewTask?.call(addedTask);
   }
@@ -294,6 +314,7 @@ class _$AddTask implements AddTask {
     TResult Function()? fetchList,
     TResult Function(TodoTask addedTask)? addNewTask,
     TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
     required TResult orElse(),
   }) {
     if (addNewTask != null) {
@@ -308,6 +329,7 @@ class _$AddTask implements AddTask {
     required TResult Function(FetchList value) fetchList,
     required TResult Function(AddTask value) addNewTask,
     required TResult Function(RemoveTask value) removeTask,
+    required TResult Function(CheckTask value) checkTask,
   }) {
     return addNewTask(this);
   }
@@ -318,6 +340,7 @@ class _$AddTask implements AddTask {
     TResult Function(FetchList value)? fetchList,
     TResult Function(AddTask value)? addNewTask,
     TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
   }) {
     return addNewTask?.call(this);
   }
@@ -328,6 +351,7 @@ class _$AddTask implements AddTask {
     TResult Function(FetchList value)? fetchList,
     TResult Function(AddTask value)? addNewTask,
     TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
     required TResult orElse(),
   }) {
     if (addNewTask != null) {
@@ -412,6 +436,7 @@ class _$RemoveTask implements RemoveTask {
     required TResult Function() fetchList,
     required TResult Function(TodoTask addedTask) addNewTask,
     required TResult Function(TodoTask removedTask) removeTask,
+    required TResult Function(TodoTask checkedTask) checkTask,
   }) {
     return removeTask(removedTask);
   }
@@ -422,6 +447,7 @@ class _$RemoveTask implements RemoveTask {
     TResult Function()? fetchList,
     TResult Function(TodoTask addedTask)? addNewTask,
     TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
   }) {
     return removeTask?.call(removedTask);
   }
@@ -432,6 +458,7 @@ class _$RemoveTask implements RemoveTask {
     TResult Function()? fetchList,
     TResult Function(TodoTask addedTask)? addNewTask,
     TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
     required TResult orElse(),
   }) {
     if (removeTask != null) {
@@ -446,6 +473,7 @@ class _$RemoveTask implements RemoveTask {
     required TResult Function(FetchList value) fetchList,
     required TResult Function(AddTask value) addNewTask,
     required TResult Function(RemoveTask value) removeTask,
+    required TResult Function(CheckTask value) checkTask,
   }) {
     return removeTask(this);
   }
@@ -456,6 +484,7 @@ class _$RemoveTask implements RemoveTask {
     TResult Function(FetchList value)? fetchList,
     TResult Function(AddTask value)? addNewTask,
     TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
   }) {
     return removeTask?.call(this);
   }
@@ -466,6 +495,7 @@ class _$RemoveTask implements RemoveTask {
     TResult Function(FetchList value)? fetchList,
     TResult Function(AddTask value)? addNewTask,
     TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
     required TResult orElse(),
   }) {
     if (removeTask != null) {
@@ -481,6 +511,150 @@ abstract class RemoveTask implements TodoEvent {
   TodoTask get removedTask;
   @JsonKey(ignore: true)
   $RemoveTaskCopyWith<RemoveTask> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CheckTaskCopyWith<$Res> {
+  factory $CheckTaskCopyWith(CheckTask value, $Res Function(CheckTask) then) =
+      _$CheckTaskCopyWithImpl<$Res>;
+  $Res call({TodoTask checkedTask});
+}
+
+/// @nodoc
+class _$CheckTaskCopyWithImpl<$Res> extends _$TodoEventCopyWithImpl<$Res>
+    implements $CheckTaskCopyWith<$Res> {
+  _$CheckTaskCopyWithImpl(CheckTask _value, $Res Function(CheckTask) _then)
+      : super(_value, (v) => _then(v as CheckTask));
+
+  @override
+  CheckTask get _value => super._value as CheckTask;
+
+  @override
+  $Res call({
+    Object? checkedTask = freezed,
+  }) {
+    return _then(CheckTask(
+      checkedTask == freezed
+          ? _value.checkedTask
+          : checkedTask // ignore: cast_nullable_to_non_nullable
+              as TodoTask,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CheckTask implements CheckTask {
+  const _$CheckTask(this.checkedTask);
+
+  @override
+  final TodoTask checkedTask;
+
+  @override
+  String toString() {
+    return 'TodoEvent.checkTask(checkedTask: $checkedTask)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CheckTask &&
+            const DeepCollectionEquality()
+                .equals(other.checkedTask, checkedTask));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(checkedTask));
+
+  @JsonKey(ignore: true)
+  @override
+  $CheckTaskCopyWith<CheckTask> get copyWith =>
+      _$CheckTaskCopyWithImpl<CheckTask>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchList,
+    required TResult Function(TodoTask addedTask) addNewTask,
+    required TResult Function(TodoTask removedTask) removeTask,
+    required TResult Function(TodoTask checkedTask) checkTask,
+  }) {
+    return checkTask(checkedTask);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? fetchList,
+    TResult Function(TodoTask addedTask)? addNewTask,
+    TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
+  }) {
+    return checkTask?.call(checkedTask);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchList,
+    TResult Function(TodoTask addedTask)? addNewTask,
+    TResult Function(TodoTask removedTask)? removeTask,
+    TResult Function(TodoTask checkedTask)? checkTask,
+    required TResult orElse(),
+  }) {
+    if (checkTask != null) {
+      return checkTask(checkedTask);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchList value) fetchList,
+    required TResult Function(AddTask value) addNewTask,
+    required TResult Function(RemoveTask value) removeTask,
+    required TResult Function(CheckTask value) checkTask,
+  }) {
+    return checkTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FetchList value)? fetchList,
+    TResult Function(AddTask value)? addNewTask,
+    TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
+  }) {
+    return checkTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchList value)? fetchList,
+    TResult Function(AddTask value)? addNewTask,
+    TResult Function(RemoveTask value)? removeTask,
+    TResult Function(CheckTask value)? checkTask,
+    required TResult orElse(),
+  }) {
+    if (checkTask != null) {
+      return checkTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CheckTask implements TodoEvent {
+  const factory CheckTask(TodoTask checkedTask) = _$CheckTask;
+
+  TodoTask get checkedTask;
+  @JsonKey(ignore: true)
+  $CheckTaskCopyWith<CheckTask> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

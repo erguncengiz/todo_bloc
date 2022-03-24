@@ -8,10 +8,12 @@ class TodoState with _$TodoState {
   const factory TodoState.error() = Error;
 }
 
-class Todos extends Equatable{
+class Todos {
   final List<TodoTask> todoList;
   const Todos(this.todoList);
+}
 
-  @override
-  List<Object?> get props => [todoList];
+class CheckedTodos {
+  final List<TodoTask> checkedList;
+  const CheckedTodos(this.checkedList);
 }
